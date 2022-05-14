@@ -1,0 +1,20 @@
+import java.util.*;
+
+class C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int N = sc.nextInt();
+
+        System.out.println(retStr(N));
+    }
+
+    static String retStr(int N){
+        String s = "1";
+        if(N ==1){
+            return "1";
+        }else {
+            return retStr(N-1)+" "+N+" "+retStr(N-1);
+        }
+    }
+}
