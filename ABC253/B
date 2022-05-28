@@ -1,0 +1,34 @@
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int H = sc.nextInt();
+        int W = sc.nextInt();
+
+        int tmp = 0;
+        int o1x = 0;
+        int o1y = 0;
+        int o2x = 0;
+        int o2y = 0;
+        String []S = new String[H + 1];
+        for(int i = 1; i <= H; i++){
+            S[i] = sc.next();
+            for(int j = 0; j < W; j++){
+                tmp++;
+                if(S[i].charAt(j) == 'o'){
+                    if(o1 == 0){
+                        o1x = j+1;
+                        o1y = i;
+                    }else{
+                        o2x = j+1;
+                        o2y = i;
+                    }
+                }
+            }
+        }
+
+        System.out.println(Math.abs(o1x - o2x)+Math.abs(o1y - o2y));
+    }
+}
