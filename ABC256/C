@@ -1,0 +1,103 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class Main {
+
+    private static Scanner sc;
+
+    public static void main(String[] args) {
+        Main instance = new Main();
+        sc = instance.new Scanner();
+        instance.solve();
+    }
+
+    private void solve() {
+        try {
+            int h1 = sc.nextInt();
+            int h2 = sc.nextInt();
+            int h3 = sc.nextInt();
+            int w1 = sc.nextInt();
+            int w2 = sc.nextInt();
+            int w3 = sc.nextInt();
+
+            int a, b, c = 0, d, e = 0, f = 0, g = 0, h = 0, i = 0;
+            int cnt = 0;
+            for (a = 1; a < h1; a++) {
+                for (d = 1; a + d < w1; d++) {
+                    g = w1 - a - d;
+                    for (b = 1; a + b < h1; b++) {
+                        for (e = 1; b + e < w2; e++) {
+                            h = w2 - b - e;
+                            c = h1 - a - b;
+                            for (f = 1; c + f < w3;
+                                 f++) {
+                                i = w3 - c - f;
+                                if (h2 == d + e + f && h3 == g + h + i) {
+                                    cnt++;
+
+                                }
+                            }
+                        }
+                }
+
+
+                }
+            }
+            System.out.println(cnt);
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private class Scanner {
+        String[] s;
+        int i;
+        BufferedReader br;
+        String regex = " ";
+
+        public Scanner() {
+            s = new String[0];
+            i = 0;
+            br = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        @Override
+        protected void finalize() throws Throwable {
+            try {
+                super.finalize();
+            } finally {
+                destruction();
+            }
+        }
+
+        private void destruction() throws IOException {
+            if (br != null) br.close();
+        }
+
+        public String next() throws IOException {
+            if (i < s.length) return s[i++];
+            String st = br.readLine();
+            while (st == "") st = br.readLine();
+            s = st.split(regex, 0);
+            i = 0;
+            return s[i++];
+        }
+
+        public int nextInt() throws NumberFormatException, IOException {
+            return Integer.parseInt(next());
+        }
+
+        public Long nextLong() throws NumberFormatException, IOException {
+            return Long.parseLong(next());
+        }
+
+        public Double nextDouble() throws NumberFormatException, IOException {
+            return Double.parseDouble(next());
+        }
+    }
+}
